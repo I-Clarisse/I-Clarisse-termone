@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import { Col, Row } from "react-bootstrap";
-
+import axios from "axios";
 import CalcDisplay from "../CalcDisplay";
 import CalcButtonGroup from "../CalcButtonGroup";
-
 import API from "../../utils/API";
-
 import "./Calculator.css";
-import Axios from "axios";
 
 export default class Calculator extends Component {
   constructor() {
@@ -18,7 +15,7 @@ export default class Calculator extends Component {
       results: "",
       param1: "",
       param2: "",
-      APIFunction: null,
+      // APIFunction: null,
       onParam1: true,
       error: false,
       operator: ""
@@ -77,6 +74,22 @@ export default class Calculator extends Component {
     })
   }
 
+  performMathCalculation = async (e) => {
+    e.preventDefault();
+
+    const doMathRequest = {
+      operand1: this.state.param1,
+      operand2: this.state.param2,
+      operation: this.state.operator
+    }
+
+    await axios.post("http://localhost:8080/api/doMath", doMathRequest)
+    .then(response => 
+      this.setState({
+        results: response.data.result
+      }))
+  }
+
   handleOnClick(event) {
     const value = event.target.value;
 
@@ -89,7 +102,8 @@ export default class Calculator extends Component {
           this.resetValues(true);
         }
         else {
-          this.performCalculation(true, null);
+          // this.performCalculation(true, null);
+          this.performMathCalculation();
         }
         break;
       }
@@ -105,7 +119,10 @@ export default class Calculator extends Component {
           this.resetValues(true);
         }
         else if (!this.state.onParam1) {
-          this.performCalculation(false, value);
+          // this.performCalculation(false, value);
+          this.setState({
+            operator: this.state.operator.value
+          })
         }
         else {
           this.setState({
@@ -128,27 +145,27 @@ export default class Calculator extends Component {
     }
   }
 
-  handleSubmit = async(e) => {
-    e.preventDefault();
+  // handleSubmit = async(e) => {
+  //   e.preventDefault();
 
-    const doMathRequest = {
-      operand1: this.state.param1,
-      operand2: this.state.param2,
-      operation: this.state.operator
-    }
+  //   const doMathRequest = {
+  //     operand1: this.state.param1,
+  //     operand2: this.state.param2,
+  //     operation: this.state.operator
+  //   }
 
-    await axios.post("http://localhost:8080/api/doMath", doMathRequest).then(res => {
+  //   await axios.post("http://localhost:8080/api/doMath", doMathRequest).then(res => {
 
-      if(res.status == 200) {
-        alert("Calculation Successful");
-        window.location.reload();
-      }
-    }).then(res => {
-      this.setState({result: res.data.result})
-    }
-    )
+  //     if(res.status == 200) {
+  //       alert("Calculation Successful");
+  //       window.location.reload();
+  //     }
+  //   }).then(res => {
+  //     this.setState({result: res.data.result})
+  //   }
+  //   )
 
-  }
+  // }
 
   render() {
     return (
@@ -164,6 +181,7 @@ export default class Calculator extends Component {
             <CalcDisplay 
               value={this.state.results}
               error={this.state.error}
+              data-cy="result"
             />
           </Col>
         </Row>

@@ -14,6 +14,7 @@ const CalcButtonGroup = props => {
             bsStyle="primary"
             label="1"
             handleOnClick={props.handleOnClick}
+            data-cy="button1"
           />
         </ButtonGroup>
         <ButtonGroup>
@@ -21,6 +22,7 @@ const CalcButtonGroup = props => {
             bsStyle="primary"
             label="2"
             handleOnClick={props.handleOnClick}
+            data-cy="button2"
           />
         </ButtonGroup>
         <ButtonGroup>
@@ -28,6 +30,7 @@ const CalcButtonGroup = props => {
             bsStyle="primary"
             label="3"
             handleOnClick={props.handleOnClick}
+            data-cy="button3"
           />
         </ButtonGroup>
         <ButtonGroup>
@@ -35,6 +38,7 @@ const CalcButtonGroup = props => {
             bsStyle="primary"
             label="4"
             handleOnClick={props.handleOnClick}
+            data-cy="button4"
           />
         </ButtonGroup>
         <ButtonGroup>
@@ -42,6 +46,7 @@ const CalcButtonGroup = props => {
             bsStyle="info"
             label="-"
             handleOnClick={props.handleOnClick}
+            data-cy="buttonSubtract"
           />
         </ButtonGroup>
         <ButtonGroup>
@@ -49,6 +54,7 @@ const CalcButtonGroup = props => {
             bsStyle="info"
             label="+"
             handleOnClick={props.handleOnClick}
+            data-cy="buttonAdd"
           />
         </ButtonGroup>
       </ButtonGroup>
@@ -59,6 +65,7 @@ const CalcButtonGroup = props => {
             bsStyle="primary"
             label="5"
             handleOnClick={props.handleOnClick}
+            data-cy="button5"
           />
         </ButtonGroup>
         <ButtonGroup>
@@ -66,6 +73,7 @@ const CalcButtonGroup = props => {
             bsStyle="primary"
             label="6"
             handleOnClick={props.handleOnClick}
+            data-cy="button6"
           />
         </ButtonGroup>
         <ButtonGroup>
@@ -73,6 +81,7 @@ const CalcButtonGroup = props => {
             bsStyle="primary"
             label="7"
             handleOnClick={props.handleOnClick}
+            data-cy="button7"
           />
         </ButtonGroup>
         <ButtonGroup>
@@ -80,6 +89,7 @@ const CalcButtonGroup = props => {
             bsStyle="primary"
             label="8"
             handleOnClick={props.handleOnClick}
+            data-cy="button8"
           />
         </ButtonGroup>
         <ButtonGroup>
@@ -87,6 +97,7 @@ const CalcButtonGroup = props => {
             bsStyle="info"
             label="*"
             handleOnClick={props.handleOnClick}
+            data-cy="buttonMultiply"
           />
         </ButtonGroup>
         <ButtonGroup>
@@ -94,6 +105,7 @@ const CalcButtonGroup = props => {
             bsStyle="info"
             label="/"
             handleOnClick={props.handleOnClick}
+            data-cy="buttonDivide"
           />
         </ButtonGroup>
       </ButtonGroup>
@@ -104,6 +116,7 @@ const CalcButtonGroup = props => {
               bsStyle="primary"
               label="9"
               handleOnClick={props.handleOnClick}
+              data-cy="button9"
             />
           </ButtonGroup>
           <ButtonGroup>
@@ -111,6 +124,7 @@ const CalcButtonGroup = props => {
               bsStyle="primary"
               label="."
               handleOnClick={props.handleOnClick}
+              data-cy="buttonDecimal"
             />
           </ButtonGroup>
           <ButtonGroup>
@@ -118,6 +132,7 @@ const CalcButtonGroup = props => {
               bsStyle="primary"
               label="0"
               handleOnClick={props.handleOnClick}
+              data-cy="button0"
             />
           </ButtonGroup>
         </ButtonGroup>
@@ -129,6 +144,7 @@ const CalcButtonGroup = props => {
               bsStyle="warning"
               label="Clear"
               handleOnClick={props.handleOnClick}
+              data-cy="buttonClear"
             />
           </ButtonGroup>
           <ButtonGroup>
@@ -136,6 +152,7 @@ const CalcButtonGroup = props => {
               bsStyle="success"
               label="="
               handleOnClick={props.handleOnClick}
+              data-cy="buttonEquals"
             />
           </ButtonGroup>
         </ButtonGroup>
